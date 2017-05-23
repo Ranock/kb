@@ -5,11 +5,10 @@ module.exports = function(app){
 			
 
 		var connection = app.config.coneccoes();
-		var noticiasModel = app.app.models.noticiasModel;
+		var noticiasModel = new app.app.models.noticiasModel(connection);
 
-		noticiasModel.getNoticias(connection, function(err, result){
-			res.render("noticias/noticias.ejs", {noticias : result});
-			
+		noticiasModel.getNoticias( function(err, result){
+			res.render("noticias/noticias.ejs", {noticias : result});			
 		});
 				
 	});
