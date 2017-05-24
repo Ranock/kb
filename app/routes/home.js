@@ -1,7 +1,7 @@
 module.exports = function(app){
 		
 		app.get("/", function(req, res){
-		res.render("home/index.ejs");
+		app.app.controller.home.index(app, req, res);
 	});
 
 
